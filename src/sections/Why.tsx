@@ -19,13 +19,13 @@ const Why = () => {
   return (
     <section className="why-section section-padding bg-silver-gray">
       <div className="container-fluid">
-        <div className="section-header text-center mb-5">
+        <div className="section-header text-center mb-5 reveal">
           <div className="sub-text">The Story</div>
           <h2>Why LaunchPit</h2>
         </div>
         <div className="row">
           {boxes.map((box, index) => (
-            <div key={index} className="col-md-4">
+            <div key={index} className="col-md-4 reveal">
               <div className="boxwrap">
                 <h4>{box.title}</h4>
                 <p>{box.desc}</p>

@@ -4,6 +4,7 @@ import "@/styles/bootstrap.min.css";
 import "@/styles/style.css";
 import "@/styles/rmp-menu.css";
 import SmoothScroll from "@/lib/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "LaunchPit Agency | Growth Marketing That Actually Scales Your Business",
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="home wp-singular page-template-default page page-id-8 wp-custom-logo wp-embed-responsive wp-theme-agencytheme singular enable-search-modal missing-post-thumbnail has-no-pagination not-showing-comments show-avatars footer-top-visible">
+        <CustomCursor />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

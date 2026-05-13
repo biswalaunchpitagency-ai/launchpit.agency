@@ -24,7 +24,7 @@ const Idea = () => {
   return (
     <section className="idea-section section-padding">
       <div className="container-fluid">
-        <div className="section-header text-center mb-5">
+        <div className="section-header text-center mb-5 reveal">
           <h2>Ready to Turn Your Marketing Into a Revenue Engine</h2>
           <p>
             Growth does not happen by chance. It is engineered through strategy, creativity, and performance optimization.{" "}
@@ -40,11 +40,11 @@ const Idea = () => {
         </div>
         <div className="row">
           {cards.map((card, index) => (
-            <div key={index} className="col-md-6 col-lg-3 mb-4">
-              <div className="white-border-box h-100">
+            <div key={index} className="col-md-6 col-lg-3 mb-4 reveal">
+              <div className="white-border-box h-100 hover:shadow-lg transition-shadow duration-300">
                 <div className="box-content">
-                  <h5>{card.title}</h5>
-                  <p>{card.desc}</p>
+                  <h5 className="font-bold mb-3">{card.title}</h5>
+                  <p className="text-zinc-600">{card.desc}</p>
                 </div>
               </div>
             </div>

@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import SectionReveal from "@/components/SectionReveal";
 
 const Expertise = () => {
   const expertises = [
@@ -36,29 +39,29 @@ const Expertise = () => {
   ];
 
   return (
-    <section className="section-expertise section-padding bg-silver-gray">
+    <section className="section-expertise section-padding bg-silver-gray overflow-hidden">
       <div className="container-fluid">
         <div className="section-header text-center mb-5">
-          <div className="sub-text">Our Expertise</div>
-          <h2>
+          <div className="sub-text mb-2">Our Expertise</div>
+          <h2 className="reveal">
             Strategic Marketing Built for <span className="d-md-block">Measurable Growth</span>
           </h2>
         </div>
-        <div className="row">
+        <SectionReveal className="row">
           {expertises.map((exp, index) => (
-            <div key={index} className="col-md-6 col-lg-4 mb-4">
-              <div className="white-border-box h-100 hover-box">
-                <div className="iconbox">
-                  <Image src={exp.icon} alt="icon" width={50} height={50} />
+            <div key={index} className="col-md-6 col-lg-4 mb-4 reveal">
+              <div className="white-border-box h-100 hover-box transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <div className="iconbox mb-4">
+                  <Image src={exp.icon} alt="icon" width={60} height={60} className="bg-zinc-100 p-2 rounded-full" />
                 </div>
                 <div className="box-content">
-                  <h4>{exp.title}</h4>
-                  <p>{exp.desc}</p>
+                  <h4 className="mb-3">{exp.title}</h4>
+                  <p className="text-zinc-600 leading-relaxed">{exp.desc}</p>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </SectionReveal>
       </div>
     </section>
   );

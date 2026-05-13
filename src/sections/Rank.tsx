@@ -15,7 +15,7 @@ const Rank = () => {
   return (
     <section className="rank-section section-padding">
       <div className="container-fluid">
-        <div className="section-header text-center mb-5">
+        <div className="section-header text-center mb-5 reveal">
           <h2 className="big-text">
             We Rank. <span className="d-block">You Shine.</span>
           </h2>
@@ -24,7 +24,7 @@ const Rank = () => {
             <span className="d-block">fast, precise, and built for performance. From SEO and paid ads to video production and AI</span> workflows, we plug in and launch you forward.
           </p>
         </div>
-        <div className="service-list d-flex flex-wrap gap-3 align-items-center justify-content-center">
+        <div className="service-list d-flex flex-wrap gap-3 align-items-center justify-content-center reveal">
           {services.map((service, index) => (
             <h2 key={index} className="pe-3 position-relative">
               <Link className="text-black" href={service.href}>

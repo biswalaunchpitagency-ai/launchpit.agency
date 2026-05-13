@@ -328,7 +328,7 @@ h6, .heading-six {
     margin-top: .375rem;
     padding: .6rem 1.25rem;
 }
-p, li, body {
+  li, body {
     font-family: var(--font-family--body-font);
     color: var(--_colors---olive-gray);
     font-size: var(--font-size--body-font);
@@ -1392,7 +1392,7 @@ body {
 	position: relative;
 	width: 100%;
 	top: 200px;
-	z-index: -1;
+	z-index: 1;
 }
 .wheel {
 	position: absolute;
@@ -1406,6 +1406,7 @@ body {
 	max-height: 2000px;
 	left: 50%;
 	transform: translateX(-50%);
+    z-index: 1;
 }
 
 .wheel__card {
@@ -1420,6 +1421,9 @@ body {
     padding: 10px;
     border-radius: 15px;
     box-shadow: 0 0 2px #b3b3b3;
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
 }
 
 .wheel__card img {

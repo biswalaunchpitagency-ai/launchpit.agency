@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import SplitType from "split-type";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,7 @@ const Hero = () => {
     const wheel = wheelRef.current;
 
     const setup = () => {
-      let radius = wheel.offsetWidth / 2;
+      let radius = wheel.offsetWidth / 2 || 1000; // Fallback radius
       let center = radius;
       let slice = 360 / cards.length;
       let DEG2RAD = Math.PI / 180;
@@ -37,7 +38,7 @@ const Hero = () => {
     // Auto rotate the wheel
     gsap.to(wheel, {
       rotation: "+=360",
-      duration: 80,
+      duration: 100,
       ease: "none",
       repeat: -1,
     });
@@ -50,8 +51,31 @@ const Hero = () => {
       repeat: -1,
     });
 
+    // Heading reveal
+    const title = new SplitType("h1", { types: "chars,words" });
+    gsap.from(title.chars, {
+      y: 120,
+      opacity: 0,
+      rotateX: -100,
+      transformOrigin: "top center",
+      stagger: 0.04,
+      duration: 2,
+      ease: "expo.out",
+      delay: 0.8
+    });
+    
+    gsap.from(".m-4, .btnwrapper", {
+      opacity: 0,
+      y: 30,
+      duration: 1.5,
+      stagger: 0.2,
+      ease: "power3.out",
+      delay: 1.5
+    });
+
     return () => {
       window.removeEventListener("resize", setup);
+      title.revert();
     };
   }, { scope: containerRef });
 
@@ -80,7 +104,7 @@ const Hero = () => {
                 {wheelCards.map((card, index) => (
                   <div key={index} className="wheel__card">
                     <div className="card-image">
-                      <Image src={card.src} alt={card.title} width={300} height={200} />
+                      <Image src={card.src} alt={card.title} width={300} height={200} priority />
                     </div>
                     <div className="card-content">
                       <h5>{card.title}</h5>
