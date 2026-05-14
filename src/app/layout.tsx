@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "@/styles/bootstrap.min.css";
-import "@/styles/style.css";
-import "@/styles/rmp-menu.css";
-import SmoothScroll from "@/lib/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "LaunchPit Agency | Growth Marketing That Actually Scales Your Business",
@@ -23,9 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="home wp-singular page-template-default page page-id-8 wp-custom-logo wp-embed-responsive wp-theme-agencytheme singular enable-search-modal missing-post-thumbnail has-no-pagination not-showing-comments show-avatars footer-top-visible">
-        <CustomCursor />
-        <SmoothScroll>{children}</SmoothScroll>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased">
+        {children}
       </body>
     </html>
   );
